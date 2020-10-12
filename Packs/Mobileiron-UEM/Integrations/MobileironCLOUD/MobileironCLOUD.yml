@@ -1,0 +1,75 @@
+category: End Point
+commonfields:
+  id: MobileironCLOUD
+  version: -1
+configuration:
+- display: Server URL (e.g. https://soar.monstersofhack.com)
+  name: url
+  defaultvalue: https://eu1.mobileiron.com/api/v1/device?
+  type: 0
+  required: true
+- display: User Name
+  name: credentials
+  type: 9
+  required: false
+- display: Fetch incidents
+  name: isFetch
+  type: 8
+  required: true
+- display: Incident type
+  name: incidentType
+  type: 13
+  required: false
+- display: Partition ID
+  name: adminDeviceSpaceId
+  defaultvalue: "33533"
+  type: 0
+  required: true
+- display: Query
+  name: query
+  defaultvalue: quarantined=FALSE
+  type: 0
+  required: false
+description: Mobileiron CLOUD Integration
+display: MobileironCLOUD
+name: MobileironCLOUD
+script:
+  commands:
+  - name: SEND_MESSAGE
+    arguments:
+    - name: deviceUuids
+      defaultValue: b60bca39-f8c9-4c88-85a0-acc7a81fc8cb
+  - name: UPDATE_OS
+    arguments:
+    - name: deviceUuids
+      defaultValue: b60bca39-f8c9-4c88-85a0-acc7a81fc8cb
+  - name: UNLOCK_DEVICE_ONLY
+    arguments:
+    - name: deviceUuids
+      defaultValue: b60bca39-f8c9-4c88-85a0-acc7a81fc8cb
+    outputs:
+    - contextPath: apiresponse
+  - name: getDevicesData
+    arguments: []
+    outputs:
+    - contextPath: deviceData
+  - name: CreateIncidents
+    arguments:
+    - name: AnalizedData
+      required: true
+      default: true
+      isArray: true
+    outputs:
+    - contextPath: createdData
+  dockerimage: demisto/python3:3.8.3.9324
+  feed: false
+  isfetch: true
+  longRunning: false
+  longRunningPort: false
+  runonce: false
+  script: '-'
+  subtype: python3
+  type: python
+defaultmapperin: Mobileiron_mapping
+defaultclassifier:
+fromversion: 5.0.0
