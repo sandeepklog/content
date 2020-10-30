@@ -1,0 +1,17 @@
+{
+    "name": "MobileIron-UEM",
+    "description": "MobileIron UEM Integration",
+    "support": "partner",
+    "currentVersion": "1.0.0",
+    "author": "MobileIron Inc.",
+    "url": "https://mobileiron.com",
+    "email": "ecosystem@mobileiron.com",
+    "created": "2020-10-12T08:22:22Z",
+    "categories": [
+        "Endpoint"
+    ],
+    "tags": ["mobileiron", "UEM", "device management", "MDM"],
+    "useCases": [],
+    "keywords": [],
+    "githubUser": []
+}

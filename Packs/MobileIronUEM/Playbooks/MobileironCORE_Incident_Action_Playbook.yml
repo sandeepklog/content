@@ -1,0 +1,763 @@
+id: MobileironCORE Incident Action Playbook
+version: -1
+name: MobileironCORE Incident Action Playbook
+description: General Incident Actions Playbook
+starttaskid: "0"
+tasks:
+  "0":
+    id: "0"
+    taskid: 9ad25eb1-9cf4-43aa-8755-d463713b8e64
+    type: start
+    task:
+      id: 9ad25eb1-9cf4-43aa-8755-d463713b8e64
+      version: -1
+      name: ""
+      iscommand: false
+      brand: ""
+      description: ''
+    nexttasks:
+      '#none#':
+      - "19"
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 1125,
+          "y": 50
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "3":
+    id: "3"
+    taskid: 9cf10625-2602-4200-8a55-a937ac1db860
+    type: regular
+    task:
+      id: 9cf10625-2602-4200-8a55-a937ac1db860
+      version: -1
+      name: Send Message
+      description: This command is used to send a message to the particular device
+        based on device id
+      script: MobileironCORE|||mobileiron-send-message
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 920,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "4":
+    id: "4"
+    taskid: 6ea485d6-9d76-4d55-8c34-f1d36c19d351
+    type: regular
+    task:
+      id: 6ea485d6-9d76-4d55-8c34-f1d36c19d351
+      version: -1
+      name: Update OS
+      description: This command is used to update OS to the particular device based
+        on device id
+      script: MobileironCORE|||mobileiron-update-os
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 4790,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "5":
+    id: "5"
+    taskid: 4ee68d8c-43c1-4817-8d42-ea6ff92f25b3
+    type: regular
+    task:
+      id: 4ee68d8c-43c1-4817-8d42-ea6ff92f25b3
+      version: -1
+      name: Unlock Device  Only
+      description: This command is used to unlock device to the particular device
+        based on device id
+      script: MobileironCORE|||mobileiron-unlock-device-only
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 1780,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "6":
+    id: "6"
+    taskid: a836dd2e-ba73-44a4-8af4-76d1a9cdd32b
+    type: regular
+    task:
+      id: a836dd2e-ba73-44a4-8af4-76d1a9cdd32b
+      version: -1
+      name: Enable Voice Roaming
+      description: This command is used to enable voice roaming to the particular
+        device based on device id
+      script: MobileironCORE|||mobileiron-enable-voice-roaming
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 3930,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "7":
+    id: "7"
+    taskid: e2b68719-b315-4674-8055-37ddf58d8cd2
+    type: regular
+    task:
+      id: e2b68719-b315-4674-8055-37ddf58d8cd2
+      version: -1
+      name: Disable Voice Roaming
+      description: This command is used to disable voice roaming to the particular
+        device based on device id
+      script: MobileironCORE|||mobileiron-disable-voice-roaming
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 4360,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "8":
+    id: "8"
+    taskid: 6143cd3c-66a4-4ef5-8e09-c6bfa326d19c
+    type: regular
+    task:
+      id: 6143cd3c-66a4-4ef5-8e09-c6bfa326d19c
+      version: -1
+      name: Enable Personal Hotspot
+      description: This command is used to enable personal hotspot to the particular
+        device based on device id
+      script: MobileironCORE|||mobileiron-enable-personal-hotspot
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 3500,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "9":
+    id: "9"
+    taskid: fc80d308-2fb4-4e6a-8633-249b72d8e873
+    type: regular
+    task:
+      id: fc80d308-2fb4-4e6a-8633-249b72d8e873
+      version: -1
+      name: Disable Personal Hotspot
+      description: This command is used to disable personal hotspot to the particular
+        device based on device id
+      script: MobileironCORE|||mobileiron-disable-personal-hotspot
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 3070,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "10":
+    id: "10"
+    taskid: 0ed112c5-2ae0-40a3-8884-f5a598c60a37
+    type: regular
+    task:
+      id: 0ed112c5-2ae0-40a3-8884-f5a598c60a37
+      version: -1
+      name: Unlock App Connect Container
+      description: This command is used to unlock app connect container to the particular
+        device based on device id
+      script: MobileironCORE|||mobileiron-unlock-app-connect-container
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 1350,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "11":
+    id: "11"
+    taskid: 88875719-4714-4a88-8fe8-274a74b9f6cb
+    type: regular
+    task:
+      id: 88875719-4714-4a88-8fe8-274a74b9f6cb
+      version: -1
+      name: Retire Device
+      description: This command is used to retire device to the particular device
+        based on device id
+      script: MobileironCORE|||mobileiron-retire-device
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 480,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "12":
+    id: "12"
+    taskid: 58a8567c-84f5-47b9-8c39-430d3321581e
+    type: regular
+    task:
+      id: 58a8567c-84f5-47b9-8c39-430d3321581e
+      version: -1
+      name: Wipe Device
+      description: This command is used to wipe device to the particular device based
+        on device id
+      script: MobileironCORE|||mobileiron-wipe-device
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 2210,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "13":
+    id: "13"
+    taskid: 73131d72-20f8-4976-8c0c-cd7708bcaad7
+    type: regular
+    task:
+      id: 73131d72-20f8-4976-8c0c-cd7708bcaad7
+      version: -1
+      name: Force Checkin
+      description: This command is used to force checkin to the particular device
+        based on device id
+      script: MobileironCORE|||mobileiron-force-checkin
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 50,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "15":
+    id: "15"
+    taskid: d58e5158-2b3c-43ae-8314-10239cbad1b2
+    type: title
+    task:
+      id: d58e5158-2b3c-43ae-8314-10239cbad1b2
+      version: -1
+      name: CLOSE
+      type: title
+      iscommand: false
+      brand: ""
+      description: ''
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 3070,
+          "y": 895
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "16":
+    id: "16"
+    taskid: 730511fc-e5da-4693-8b4c-fff8e6d69579
+    type: regular
+    task:
+      id: 730511fc-e5da-4693-8b4c-fff8e6d69579
+      version: -1
+      name: Enable Data Roaming
+      description: This command is used to enable data roaming to the particular device
+        based on device id
+      script: MobileironCORE|||mobileiron-enable-data-roaming
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 2640,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "17":
+    id: "17"
+    taskid: c7994f6c-cf91-49de-8b2a-137f7df7f205
+    type: regular
+    task:
+      id: c7994f6c-cf91-49de-8b2a-137f7df7f205
+      version: -1
+      name: Disable Data Roaming
+      description: This command is used to disable data roaming to the particular
+        device based on device id
+      script: MobileironCORE|||mobileiron-disable-data-roaming
+      type: regular
+      iscommand: true
+      brand: MobileironCORE
+    nexttasks:
+      '#none#':
+      - "22"
+    scriptarguments:
+      device_id:
+        simple: ${incident.deviceid}
+      platform:
+        simple: ${incident.os}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 5220,
+          "y": 545
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "19":
+    id: "19"
+    taskid: b5007e22-7a28-41f1-804a-1c93eedbac6e
+    type: condition
+    task:
+      id: b5007e22-7a28-41f1-804a-1c93eedbac6e
+      version: -1
+      name: Verify Platform
+      description: Verify device platform
+      type: condition
+      iscommand: false
+      brand: ""
+    nexttasks:
+      Android:
+      - "20"
+      IOs:
+      - "21"
+      Others:
+      - "24"
+    separatecontext: false
+    conditions:
+    - label: Android
+      condition:
+      - - operator: isEqualString
+          left:
+            value:
+              simple: incident.os
+            iscontext: true
+          right:
+            value:
+              simple: Android
+    - label: IOs
+      condition:
+      - - operator: isEqualString
+          left:
+            value:
+              simple: incident.os
+            iscontext: true
+          right:
+            value:
+              simple: IOS
+    - label: Others
+      condition:
+      - - operator: isEqualString
+          left:
+            value:
+              simple: incident.os
+            iscontext: true
+          right:
+            value:
+              simple: Others
+    view: |-
+      {
+        "position": {
+          "x": 1125,
+          "y": 195
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "20":
+    id: "20"
+    taskid: da5ba2c2-af78-476a-885a-a5a2d7d83330
+    type: condition
+    task:
+      id: da5ba2c2-af78-476a-885a-a5a2d7d83330
+      version: -1
+      name: Android Actions
+      description: Android specific actions
+      type: condition
+      iscommand: false
+      brand: ""
+    nexttasks:
+      Force Checkin:
+      - "13"
+      Retire Device:
+      - "11"
+      SEND Message:
+      - "3"
+      Unlock App Connect Container:
+      - "10"
+      Unlock Device:
+      - "5"
+      Wipe Device:
+      - "12"
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 455,
+          "y": 370
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "21":
+    id: "21"
+    taskid: c685d122-3620-47dc-89a1-9971f2326919
+    type: condition
+    task:
+      id: c685d122-3620-47dc-89a1-9971f2326919
+      version: -1
+      name: IOS Actions
+      description: iOS specific actions
+      type: condition
+      iscommand: false
+      brand: ""
+    nexttasks:
+      Disable Data Roaming:
+      - "17"
+      Disable Personal Hotspot:
+      - "9"
+      Disable Voice Roaming:
+      - "7"
+      Enable Data Roaming:
+      - "16"
+      Enable Personal Hotspot:
+      - "8"
+      Enable Voice Roaming:
+      - "6"
+      Force Checkin:
+      - "13"
+      Retire Device:
+      - "11"
+      Send Message:
+      - "3"
+      Unlock Device:
+      - "5"
+      Update OS:
+      - "4"
+      Wipe Device:
+      - "12"
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 2855,
+          "y": 370
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "22":
+    id: "22"
+    taskid: 4137aac3-8be3-4ce8-8481-372158026af8
+    type: regular
+    task:
+      id: 4137aac3-8be3-4ce8-8481-372158026af8
+      version: -1
+      name: Close Investigation
+      description: commands.local.cmd.close.inv
+      script: Builtin|||closeInvestigation
+      type: regular
+      iscommand: true
+      brand: Builtin
+    nexttasks:
+      '#none#':
+      - "15"
+    scriptarguments:
+      assetid: {}
+      closeNotes:
+        simple: ${apiresponse}
+      closeReason: {}
+      emailclassification: {}
+      id:
+        simple: ${incident.id}
+      phishingsubtype: {}
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 3070,
+          "y": 740
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+  "24":
+    id: "24"
+    taskid: 83973714-b810-46f9-8fe2-4b4b5f422beb
+    type: condition
+    task:
+      id: 83973714-b810-46f9-8fe2-4b4b5f422beb
+      version: -1
+      name: Other Device Actions
+      description: Actions related to other devices
+      type: condition
+      iscommand: false
+      brand: ""
+    nexttasks:
+      Force Checkin:
+      - "13"
+      Retire Device:
+      - "11"
+      Send Message:
+      - "3"
+      Wipe Device:
+      - "12"
+    separatecontext: false
+    view: |-
+      {
+        "position": {
+          "x": 1125,
+          "y": 370
+        }
+      }
+    note: false
+    timertriggers: []
+    ignoreworker: false
+    skipunavailable: false
+    quietmode: 0
+view: |-
+  {
+    "linkLabelsPosition": {
+      "19_21_IOs": 0.74,
+      "20_13_Force Checkin": 0.33,
+      "20_5_Unlock Device": 0.54,
+      "21_11_Retire Device": 0.16,
+      "21_17_Disable Data Roaming": 0.88,
+      "21_5_Unlock Device": 0.84,
+      "21_7_Disable Voice Roaming": 0.89,
+      "24_13_Force Checkin": 0.26,
+      "24_3_Send Message": 0.11
+    },
+    "paper": {
+      "dimensions": {
+        "height": 910,
+        "width": 5550,
+        "x": 50,
+        "y": 50
+      }
+    }
+  }
+inputs: []
+outputs: []
+tests:
+- No tests (auto formatted)
+fromversion: 6.0.0

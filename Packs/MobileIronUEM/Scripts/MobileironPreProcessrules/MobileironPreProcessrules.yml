@@ -1,0 +1,19 @@
+commonfields:
+  id: Mobileiron-Pre-Process-rules
+  version: -1
+enabled: true
+name: Mobileiron-Pre-Process-rules
+script: '-'
+subtype: python3
+system: false
+comment: ''
+tags:
+- preProcessing
+timeout: '0'
+type: python
+dockerimage: demisto/python3:3.8.6.12176
+runas: DBotWeakRole
+runonce: false
+tests:
+- No tests (auto formatted)
+fromversion: 5.0.0
