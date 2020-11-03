@@ -47,7 +47,9 @@ CORE_DEVICE_TO_INCIDENT_MAPPING = {
 
 
 class MobileIronCoreClient(BaseClient):
-    """Client class to interact with the MobileIron Core API"""
+    """
+    Client class to interact with the MobileIron Core API
+    """
 
     def __get_device_data_page(self, current_page: int = 0, per_page: int = 50, query: str = None,
                                fields: str = None, admin_space_id: str = None) -> List[Any]:
@@ -68,19 +70,20 @@ class MobileIronCoreClient(BaseClient):
             return results + self.__get_device_data_page(current_page + 1, per_page, query, fields, admin_space_id)
 
     def get_devices_data(self, admin_space_id: str, query: str = None, fields: str = None) -> List[Any]:
-        """Gets the Devices Data from MobileIron Core
+        """
+            Gets the Devices Data from MobileIron Core
 
-        :type query: ``str``
-        :param query: Conditions in the Core API Call
+            :type query: ``str``
+            :param query: Conditions in the Core API Call
 
-        :type fields: ``str``
-        :param fields: Attributes to be retrieved
+            :type fields: ``str``
+            :param fields: Attributes to be retrieved
 
-        :type admin_space_id: ``str``
-        :param admin_space_id: Admin Space ID
+            :type admin_space_id: ``str``
+            :param admin_space_id: Admin Space ID
 
-        :return: list containing all device info as returned from the API
-        :rtype: ``List``
+            :return: list containing all device info as returned from the API
+            :rtype: ``List``
         """
 
         if not admin_space_id:
@@ -89,20 +92,20 @@ class MobileIronCoreClient(BaseClient):
         return self.__get_device_data_page(query=query, fields=fields, admin_space_id=admin_space_id)
 
     def execute_device_action(self, device_id: str, admin_space_id: str, command_action: str) -> Dict[str, Any]:
-        """Execute device action.
+        """
+            Execute device action.
 
-        :type command_action: ``str``
-        :param command_action: Action String based on the action to be performed over MobileIron Core.
+            :type command_action: ``str``
+            :param command_action: Action String based on the action to be performed over MobileIron Core.
 
-        :type device_id: ``str``
-        :param device_id: DeviceID on which the actions should be performed..
+            :type device_id: ``str``
+            :param device_id: DeviceID on which the actions should be performed..
 
-        :type admin_space_id: ``str``
-        :param admin_space_id: Admin Space ID
+            :type admin_space_id: ``str``
+            :param admin_space_id: Admin Space ID
 
-        :return: dict containing the scan results as returned from the API
-        :rtype: ``Dict[str, Any]``
-
+            :return: dict containing the scan results as returned from the API
+            :rtype: ``Dict[str, Any]``
         """
 
         if not device_id:
@@ -140,28 +143,29 @@ class MobileIronCoreClient(BaseClient):
     def send_message_action(self, device_id: str, admin_space_id: str, message: str, message_mode: str = 'pns',
                             message_subject: str = '') -> \
             Dict[str, Any]:
-        """Execute send message action to MobileIron CORE based on the conditions.
+        """
+            Execute send message action to MobileIron CORE based on the conditions.
 
-        :type device_id: ``str``
-        :param device_id: DeviceID on which the actions should be performed..
+            :type device_id: ``str``
+            :param device_id: DeviceID on which the actions should be performed..
 
-        :type admin_space_id: ``str``
-        :param admin_space_id: Admin Space ID
+            :type admin_space_id: ``str``
+            :param admin_space_id: Admin Space ID
 
-        :type message: ``str``
-        :param message: Message to send to the specified devices.
+            :type message: ``str``
+            :param message: Message to send to the specified devices.
 
-        :type message_mode: ``str``
-        :param message_mode: Mode of the message:
-                            • pns (push notifications)
-                            • sms
-                            • email (email takes the subject parameter, too)
+            :type message_mode: ``str``
+            :param message_mode: Mode of the message:
+                                • pns (push notifications)
+                                • sms
+                                • email (email takes the subject parameter, too)
 
-        :type message_subject: ``str``
-        :param message_subject: Provide if desired when the message mode is email.
+            :type message_subject: ``str``
+            :param message_subject: Provide if desired when the message mode is email.
 
-        :return: dict containing the scan results as returned from the API
-        :rtype: ``Dict[str, Any]``
+            :return: dict containing the scan results as returned from the API
+            :rtype: ``Dict[str, Any]``
         """
 
         if not device_id:
@@ -183,10 +187,11 @@ class MobileIronCoreClient(BaseClient):
         )
 
     def ping(self):
-        """Executes PING ´to check for the connection with MobileIron CORE.
+        """
+            Executes PING ´to check for the connection with MobileIron CORE.
 
-        :return: Ping Response
-        :rtype:
+            :return: Ping Response
+            :rtype:
         """
         return self._http_request(
             method='GET',
@@ -196,13 +201,13 @@ class MobileIronCoreClient(BaseClient):
 
 def __resolve_device_incident_severity(device_info: Dict[str, Any]) -> int:
     """
-    Gets the severity based on following conditions
+        Gets the severity based on following conditions
 
-    :type device_info: ``json``
-    :param device_info: Dictionary containing the device information
+        :type device_info: ``json``
+        :param device_info: Dictionary containing the device information
 
-    return : 'int'
-    return param: returns severity to be set on the incident
+        return : 'int'
+        return param: returns severity to be set on the incident
     """
 
     if device_info['common.security_state'] != 'Ok':
@@ -214,7 +219,8 @@ def __resolve_device_incident_severity(device_info: Dict[str, Any]) -> int:
 
 
 def __rename_keys(event_input: Dict[str, Any], keys: Dict[str, Any]) -> Dict[str, Any]:
-    """ Function to rename/translate keys from the API Response
+    """
+        Function to rename/translate keys from the API Response
 
         :type event_input: ``str``
         :param event_input: Each device information retrieved from CORE.
@@ -223,7 +229,7 @@ def __rename_keys(event_input: Dict[str, Any], keys: Dict[str, Any]) -> Dict[str
 
         :return: dict containing the scan results as returned from the API
         :rtype: ``Dict[str, Any]``
-        """
+    """
 
     return dict([(keys.get(k, k), v) for k, v in event_input.items()])
 
@@ -247,40 +253,41 @@ def __validate_action_response(response) -> str:
 
 def execute_device_action_command(client: MobileIronCoreClient, params: Dict[str, Any], args: Dict[str, Any],
                                   action: str) -> str:
-    """execute_device_action_command: Returns results for a MobileIron Device Action
+    """
+        Returns results for a MobileIron Device Action
 
-    :type client: ``Client``
-    :param client: MobileIron client to use
+        :type client: ``Client``
+        :param client: MobileIron client to use
 
-    :type action: ``str``
-    :param action: Device Specific Action, one of the following actions are allowed:
-        - Retire a device
-        - Wipe a device - This is potentially a destructive action
-        - Send a message
-        - Force Checkin a device
-        - ENABLE_VOICE_ROAMING (iOS)
-        - DISABLE_VOICE_ROAMING (iOS)
-        - ENABLE_DATA_ROAMING (iOS)
-        - DISABLE_DATA_ROAMING (iOS)
-        - ENABLE_PERSONAL_HOTSPOT (iOS)
-        - DISABLE_PERSONAL_HOTSPOT (iOS)
-        - UPDATE_OS (iOS)
-        - UNLOCK_APP_CONNECT_CONTAINER (Android)
-        - UNLOCK_DEVICE_ONLY (Android, iOS)
+        :type action: ``str``
+        :param action: Device Specific Action, one of the following actions are allowed:
+            - Retire a device
+            - Wipe a device - This is potentially a destructive action
+            - Send a message
+            - Force Checkin a device
+            - ENABLE_VOICE_ROAMING (iOS)
+            - DISABLE_VOICE_ROAMING (iOS)
+            - ENABLE_DATA_ROAMING (iOS)
+            - DISABLE_DATA_ROAMING (iOS)
+            - ENABLE_PERSONAL_HOTSPOT (iOS)
+            - DISABLE_PERSONAL_HOTSPOT (iOS)
+            - UPDATE_OS (iOS)
+            - UNLOCK_APP_CONNECT_CONTAINER (Android)
+            - UNLOCK_DEVICE_ONLY (Android, iOS)
 
-    :type params: ``Dict[str, Any]``
-    :param params:
-        all global parameters, usually passed from ``demisto.params()``.
-        ``params['admin_space_id']`` Admin Space ID for the tenant
+        :type params: ``Dict[str, Any]``
+        :param params:
+            all global parameters, usually passed from ``demisto.params()``.
+            ``params['admin_space_id']`` Admin Space ID for the tenant
 
-    :type args: ``Dict[str, Any]``
-    :param args:
-        all command arguments, usually passed from ``demisto.args()``.
-        ``args['device_id']`` Device ID
+        :type args: ``Dict[str, Any]``
+        :param args:
+            all command arguments, usually passed from ``demisto.args()``.
+            ``args['device_id']`` Device ID
 
-    :return:
-        Status of the request. In case of issues executing this request an exception will be raised.
-    :rtype: ``str``
+        :return:
+            Status of the request. In case of issues executing this request an exception will be raised.
+        :rtype: ``str``
     """
 
     device_id = args.get('device_id')
@@ -290,7 +297,8 @@ def execute_device_action_command(client: MobileIronCoreClient, params: Dict[str
 
 
 def execute_test_module_command(client: MobileIronCoreClient):
-    """ This definition is for test command - get Ping response from Core
+    """
+        This definition is for test command - get Ping response from Core
 
         :return: demisto.results('ok')
         :rtype: string.
@@ -298,6 +306,57 @@ def execute_test_module_command(client: MobileIronCoreClient):
     response = client.ping()
     if response and (response["results"]):
         return 'ok'
+
+
+def execute_fetch_incidents_command(client, params):
+    """
+        runs the fetch incidents task. It will check the fetch_interval first before
+        making any API calls to the MobileIron API's
+
+        :type client: ``Client``
+        :param client: MobileIron client to use
+
+        :type params: ``Dict[str, Any]``
+        :param params:
+            all global parameters, usually passed from ``demisto.params()``.
+            ``params['admin_space_id']`` Admin Space ID for the tenant
+    """
+
+    __should_fetch_incidents_run(params)
+    # Set and define the fetch incidents command to run after activated via integration settings.
+    incidents = fetch_incidents(client=client, params=params)
+    # fetch-incidents calls ``demisto.incidents()`` to provide the list
+    # of incidents to crate
+    demisto.incidents(incidents)
+
+    now_utc = datetime.utcnow()
+    current_run_time = __datetime_to_posix_without_milliseconds(now_utc)
+    demisto.setLastRun({'time': current_run_time})
+
+
+def __should_fetch_incidents_run(params):
+    """
+    will check if fetch incidents should run based on the last time the command ran and comparing the
+    configured fetch_interval
+
+    :type params: ``Dict[str, Any]``
+    :param params:
+        all global parameters, usually passed from ``demisto.params()``.
+        ``params['admin_space_id']`` Admin Space ID for the tenant
+
+    """
+    now_utc = datetime.utcnow()
+    last_run_data = demisto.getLastRun()
+    last_run_time = int(0)
+    if last_run_data:
+        last_run_time = last_run_data['time']
+    next_run_interval = params.get('fetch_interval')
+    date_time_interval_ago = now_utc - timedelta(minutes=int(next_run_interval))
+    time_interval_ago = __datetime_to_posix_without_milliseconds(date_time_interval_ago)
+    if last_run_time != 0 and last_run_time > time_interval_ago:
+        demisto.incidents([])
+        sys.exit(0)
+        # End of skip based on the time interval.
 
 
 def fetch_incidents(client: MobileIronCoreClient, params: Dict[str, Any]) -> List[Dict[str, Any]]:
@@ -515,30 +574,7 @@ def main():
             return_results(execute_test_module_command(client))
 
         elif demisto.command() == 'fetch-incidents':
-            # Code For changing the pull incidents with timeline.
-            now_utc = datetime.utcnow()
-            current_run_time = __datetime_to_posix_without_milliseconds(now_utc)
-
-            last_run_data = demisto.getLastRun()
-            last_run_time = int(0)
-            if last_run_data:
-                last_run_time = last_run_data['time']
-
-            next_run_interval = params.get('fetch_interval')
-            date_time_interval_ago = now_utc - timedelta(minutes=int(next_run_interval))
-            time_interval_ago = __datetime_to_posix_without_milliseconds(date_time_interval_ago)
-
-            if last_run_time != 0 and last_run_time > time_interval_ago:
-                demisto.incidents([])
-                sys.exit(0)
-                # End of skip based on the time interval.
-
-            # Set and define the fetch incidents command to run after activated via integration settings.
-            incidents = fetch_incidents(client=client, params=params)
-            # fetch-incidents calls ``demisto.incidents()`` to provide the list
-            # of incidents to crate
-            demisto.incidents(incidents)
-            demisto.setLastRun({'time': current_run_time})
+            execute_fetch_incidents_command(client, params)
 
         elif demisto.command() == 'mobileiron-get-devices-data':
             # To get the list of devices data with the given parameters.

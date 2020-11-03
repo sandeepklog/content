@@ -58,7 +58,7 @@ script:
       description: This argument fetch the device id for mobileiron send message command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     - default: false
       description: Provide Subject for email
@@ -93,7 +93,7 @@ script:
       description: This argument fetch the device id for mobileiron update os command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to update OS to the particular device based
@@ -106,7 +106,7 @@ script:
         only command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to unlock device to the particular device based
@@ -119,7 +119,7 @@ script:
         command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to enable voice roaming to the particular device
@@ -132,7 +132,7 @@ script:
         roaming command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to disable voice roaming to the particular device
@@ -145,7 +145,7 @@ script:
         command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to enable data roaming to the particular device
@@ -158,7 +158,7 @@ script:
         command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to disable data roaming to the particular device
@@ -171,7 +171,7 @@ script:
         hotspot command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to enable personal hotspot to the particular
@@ -184,7 +184,7 @@ script:
         hotspot command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to disable personal hotspot to the particular
@@ -197,7 +197,7 @@ script:
         container command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to unlock app connect container to the particular
@@ -210,7 +210,7 @@ script:
         command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to retire device to the particular device based
@@ -222,7 +222,7 @@ script:
       description: device id pointing to the device to execute the command on
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to wipe device to the particular device based
@@ -235,7 +235,7 @@ script:
         command
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     deprecated: false
     description: This command is used to force checkin to the particular device based
@@ -248,7 +248,7 @@ script:
       description: The query which to execute to filter down the list of devices
       isArray: false
       name: query
-      required: false
+      required: true
       secret: false
     - default: false
       description: comma separated list of fields to query from the API
@@ -270,7 +270,7 @@ script:
       description: device id pointing to the device to execute the command on
       isArray: false
       name: device_id
-      required: false
+      required: true
       secret: false
     - default: false
       description: comma separated list of fields to query from the API
